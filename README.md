@@ -123,3 +123,94 @@ SELECT * FROM branch;
 SELECT * FROM client;
 SELECT * FROM Works_With;
 SELECT * FROM branch_supplier;
+
+
+-- more basic queries
+
+-- employees order by salary
+SELECT * 
+FROM employee
+ORDER BY salary DESC;
+
+--employee ordered by sex and then name
+SELECT *
+FROM employee
+ORDER BY sex , first_name, last_name;
+
+--first 5 emplyee in the table
+SELECT * 
+FROM employee
+LIMIT 5;
+
+--forenames and surname of all employees
+SELECT first_name AS forenames,last_name AS surnames
+FROM employee;
+
+-- all different gender
+SELECT distinct sex 
+FROM employee;
+
+
+
+-- functions
+
+-- no of employees
+SELECT COUNT(emp_id)
+FROM employee;
+
+-- no of female employees born after 1970
+SELECT COUNT(emp_id)
+FROM employee
+WHERE sex = 'F' AND birth_day > '1971-01-01';
+
+-- average of all  M employee salaries
+SELECT AVG(salary)
+FROM employee
+WHERE sex='M'; 
+
+-- no of males and females 'Aggregation'
+SELECT COUNT(sex), sex
+FROM employee
+GROUP BY sex ;  
+
+-- total sales of each salesman
+SELECT SUM(total_sales), emp_id
+FROM works_with
+GROUP BY emp_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
