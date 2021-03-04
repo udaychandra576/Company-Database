@@ -1,0 +1,146 @@
+CREATE TABLE Student(
+    student_id INT PRIMARY KEY, 
+    name VARCHAR(20),
+    major VARCHAR(20)
+);
+DESCRIBE Student;
+DROP Table Student;
+
+ALTER TABLE Student ADD CGPA DECIMAL(4,2);
+ALTER TABLE Student DROP CGPA;
+
+
+SELECT * FROM Student;
+INSERT INTO Student VALUES(1, 'JAck', 'Biology');
+INSERT INTO Student VALUES(2, 'Steve', 'Physics');
+INSERT INTO Student VALUES(3, 'Joe', 'Maths');
+INSERT INTO Student(student_id, name) VALUES(4, 'waller');
+INSERT INTO Student(student_id, major) VALUES(5, 'Maths');
+
+  DROP TABLE Student;
+
+
+-- Constraints
+CREATE TABLE Student(
+    student_id INT PRIMARY KEY , 
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE DEFAULT 'undecided'
+    
+);
+
+DESCRIBE Student;
+
+INSERT INTO Student VALUES(1, 'JAck', 'Biology');
+INSERT INTO Student VALUES(2, 'Steve', 'Physics');
+INSERT INTO Student VALUES(3, 'Joe', 'Maths');
+INSERT INTO Student(student_id, name) VALUES(4, 'waller');
+INSERT INTO Student VALUES(5, 'jerry', 'economics');
+
+Select * FROM Student;
+
+DROP TABLE Student;
+
+
+CREATE TABLE Student(
+    student_id INT PRIMARY KEY AUTO_INCREMENT, 
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE DEFAULT 'undecided'
+    
+);
+
+DESCRIBE Student;
+
+INSERT INTO Student(name, major) VALUES('JAck', 'Biology');
+INSERT INTO Student(name , major) VALUES('Steve', 'Physics');
+INSERT INTO Student(name , major) VALUES('Joe', 'Maths');
+INSERT INTO Student(name , major) VALUES('uday', 'waller');
+INSERT INTO Student(name , major) VALUES('jerry', 'economics');
+
+Select * FROM Student;
+
+DROP Table Student;
+
+-- update delete 
+
+CREATE TABLE Student(
+    student_id INT PRIMARY KEY AUTO_INCREMENT, 
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE DEFAULT 'undecided'
+    
+);
+
+DESCRIBE Student;
+
+INSERT INTO Student(name, major) VALUES('JAck', 'Biology');
+INSERT INTO Student(name , major) VALUES('Steve', 'Physics');
+INSERT INTO Student(name , major) VALUES('Joe', 'Maths');
+INSERT INTO Student(name , major) VALUES('uday', 'waller');
+INSERT INTO Student(name , major) VALUES('jerry', 'economics');
+
+SELECT * FROM Student;
+
+drop table Student;
+
+UPDATE Student SET major = 'Bio' WHERE major = 'Biology';
+UPDATE Student 
+SET major = 'BioPhysics' 
+WHERE major = 'Bio';
+
+DELETE From Student
+WHERE major = 'economics' AND student_id= 5;
+
+-- basic queries
+ 
+CREATE TABLE Student(
+    student_id INT PRIMARY KEY AUTO_INCREMENT, 
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) DEFAULT 'undecided'
+    
+);
+
+DESCRIBE Student;
+
+INSERT INTO Student(name, major) VALUES('JAck', 'Biology');
+INSERT INTO Student(name , major) VALUES('Steve', 'Physics');
+INSERT INTO Student(name , major) VALUES('Joe', 'Maths');
+INSERT INTO Student(name , major) VALUES('uday', 'waller');
+INSERT INTO Student(name , major) VALUES('jerry', 'economics');
+SELECT * FROM Student;
+
+SELECT name 
+WHERE major= 'Biology'
+FROM Student;
+
+
+SELECT Student.name , Student.major
+FROM Student
+ORDER BY name;
+
+SELECT * 
+FROM Student
+ORDER BY major , student_id;
+
+SELECT student_id
+FROM Student 
+WHERE major = 'Biology ';
+
+
+SELECT * 
+FROM Student
+WHERE student_id IN (1,2,3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
